@@ -1,3 +1,3 @@
-function add_num(first::Number, second::Number)::Number
+function divide_num(first::Number, second::Number)::Number
     return first / second
 end
