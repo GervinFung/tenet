@@ -5,5 +5,6 @@ using Test
 
 include("add.jl")
 include("string.jl")
+include("multi.jl")
 
 end
