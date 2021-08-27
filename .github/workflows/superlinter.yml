@@ -30,6 +30,8 @@ jobs:
           - os: macOS-latest
             version: 'nightly'
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
       - name: Run julia-actions/setup-julia@v1
         uses: julia-actions/setup-julia@v1
         with:
