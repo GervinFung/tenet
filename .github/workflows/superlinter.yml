@@ -4,7 +4,21 @@ on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    name: Julia ${{ matrix.version }} - ${{ matrix.os }} - ${{ matrix.arch }} - ${{ github.event_name }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        version: ['1.6', 'nightly']
+        os: [ubuntu-latest, macOS-latest, windows-latest]
+        arch: [x64, x86]
+        threads:
+          - "4"
+        exclude:
+          - os: macOS-latest
+            arch: x86
+          - os: macOS-latest
+            version: 'nightly'
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -30,13 +44,15 @@ jobs:
           - os: macOS-latest
             version: 'nightly'
     steps:
-      - uses: actions/checkout@v2
-      - uses: julia-actions/setup-julia@v1
+      - name: Run julia-actions/setup-julia@v1
+        uses: julia-actions/setup-julia@v1
         with:
           version: ${{ matrix.version }}
           arch: ${{ matrix.arch }}
-      - uses: julia-actions/julia-buildpkg@v1
-      - uses: julia-actions/julia-runtest@v1
+      - name: Run julia-actions/julia-buildpkg@v1
+        uses: julia-actions/julia-buildpkg@v1
+      - name: Run julia-actions/julia-runtest@v1
+        uses: julia-actions/julia-runtest@v1
         env:
           JULIA_NUM_THREADS: ${{ matrix.threads }}
       - name: Run julia-actions/julia-processcoverage@v1
