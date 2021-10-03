@@ -1,0 +1,18 @@
+{
+    "name": "typescript-anything",
+    "version": "1.0.0",
+    "description": "run any typescript",
+    "main": "src/run.ts",
+    "keywords": [],
+    "author": "PoolOfDeath20",
+    "license": "ISC",
+    "scripts": {
+        "start": "ts-node src/run.ts"
+    },
+    "devDependencies": {
+        "ts-node": "^10.2.1",
+        "tslib": "^2.3.1",
+        "typescript": "^4.4.3",
+        "yarn": "^1.22.15"
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "module": "COMMONJS",
+        "moduleResolution": "Node",
+        "resolveJsonModule": true,
+        "target": "ES2017",
+        "lib": ["DOM", "DOM.Iterable", "ES2015", "ES2016", "ESNext"],
+        "sourceMap": true,
+        "importHelpers": true,
+        "jsx": "react",
+        "esModuleInterop": true,
+        "strict": true,
+        "noImplicitAny": false,
+        "outDir": "__compiled",
+        "noErrorTruncation": false,
+        "skipLibCheck": true,
+        "noUncheckedIndexedAccess": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
+}
